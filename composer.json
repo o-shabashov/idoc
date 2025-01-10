@@ -1,0 +1,86 @@
+{
+    "name": "searchanise/idoc",
+    "license": "MIT",
+    "description": "Generate beautiful API documentation from your Laravel application",
+    "keywords": [
+        "API",
+        "Documentation",
+        "Laravel"
+    ],
+    "homepage": "http://github.com/ovac/idoc",
+    "authors": [
+        {
+            "name": "Victor Ariama (ovac4u)",
+            "email": "iamovac@gmail.com"
+        },
+        {
+            "name": "Oleg Shabashov",
+            "email": "oleg.shabashov@searchanise.io"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "fakerphp/faker": "^1.12",
+        "illuminate/routing": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "illuminate/support": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "illuminate/console": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "laravel/framework": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0",
+        "mpociot/reflection-docblock": "^1.0.1",
+        "ramsey/uuid": "^3.8 || ^4.0",
+        "searchanise/common": "^4.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "pestphp/pest": "^2.34",
+        "league/fractal": "^0.17.0",
+        "rector/rector": "^0.18.4",
+    	"overtrue/phplint": "^9.0",
+        "pestphp/pest-plugin-faker": "^2.0",
+        "friendsofphp/php-cs-fixer": "^3.51",
+        "captainhook/captainhook": "^5.22",
+        "captainhook/hook-installer": "^1.0"
+    },
+    "autoload": {
+        "files": [
+            "helpers/helpers.php"
+        ],
+        "psr-4": {
+            "OVAC\\IDoc\\": "src/idoc"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OVAC\\IDoc\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OVAC\\IDoc\\IDocServiceProvider"
+            ]
+       }
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "captainhook/hook-installer": true
+        }
+    },
+    "scripts": {
+        "test": [
+            "./vendor/bin/pest"
+        ],
+        "test-with-coverage": [
+            "XDEBUG_MODE=coverage ./vendor/bin/pest --coverage"
+        ],
+        "csfix": [
+            "./vendor/bin/php-cs-fixer fix"
+        ]
+    },
+    "repositories": [
+        {
+            "url": "https://git.searchserverapi.com/searchanise/common",
+            "type": "vcs"
+        }
+    ]
+}
